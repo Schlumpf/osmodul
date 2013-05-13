@@ -166,9 +166,20 @@ class ModOsmodHelper{
 
 		// generate Javascript
 		// ----------------------------------------
-		$js  = "var map".$id."       = new L.Map('map".$id."', {worldCopyJump: true});\n";
+
+		// no worldWarp (no wolrd copies, restrict the view to one world)
+		if($params->get('noWorldWarp', 0) == 1){
+			$nowarp = "noWrap: true, ";
+			$worldcopyjump = "worldCopyJump: false, maxBounds: [ [82, -180], [-82, 180] ]";
+		}else{
+			$nowarp = "noWrap: false, ";
+			$worldcopyjump = "worldCopyJump: true";
+		}
+
+		// create the map
+		$js  = "var map".$id."       = new L.Map('map".$id."', {".$worldcopyjump."});\n";
 		$js .= "    map".$id.".attributionControl.setPrefix('');\n";
-		$js .= "var baselayer".$id." = new L.TileLayer('".$baselayerURL."', {maxZoom: 18, attribution: '".JText::_('MOD_OSMOD_OSMCOPYRIGHT')."'});\n";
+		$js .= "var baselayer".$id." = new L.TileLayer('".$baselayerURL."', {maxZoom: 18, ".$nowarp."attribution: '".JText::_('MOD_OSMOD_OSMCOPYRIGHT')."'});\n";
 		$js .= "var koord".$id."     = new L.LatLng(".$lat.", ".$lon.");\n";
 
 		// Attribution
