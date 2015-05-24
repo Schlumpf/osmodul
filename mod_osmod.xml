@@ -2,12 +2,12 @@
 <extension type="module" version="2.5" client="site" method="upgrade">
 	<name>OSModul</name>
 	<author>Martin Kröll</author>
-	<creationDate>13.05.2013</creationDate>
-	<copyright>(c) 2012-2013 Martin Kröll</copyright>
+	<creationDate>21.05.2015</creationDate>
+	<copyright>(c) 2012-2015 Martin Kröll</copyright>
 	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
 	<authorEmail>technikschlumpf@web.de</authorEmail>
 	<authorUrl>http://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
-	<version>2.5</version>
+	<version>2.6</version>
 	<description>MOD_OSMOD_DESCRIPTION</description>
 
 	<updateservers>
@@ -23,6 +23,7 @@
 		<filename module="mod_osmod">mod_osmod.php</filename>
 		<filename>helper.php</filename>
 		<filename>index.html</filename>
+        <filename>CHANGES</filename>
 	</files>
 
 	<languages folder="language">
@@ -57,10 +58,12 @@
 					<option value="18">18</option>
 				</field>
 				<field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
-  					<option value="mapnik">OpenStreetMap (Mapnik)</option>
+  					<option value="mapnik">OpenStreetMap</option>
   					<option value="mapnikde">OpenStreetMap DE</option>
+                    <option value="stamenwater">Stamen Watercolor</option>
 					<option value="mapquest">MapQuest</option>
-					<option value="cloudmade">Cloudmade</option>
+                    <option value="opentopomap">OpenTopoMap</option>
+                    <option value="openmapsurfer">OpenMapSurfer</option>
 					<option value="custom">custom</option>
 				</field>
 				<field type="text" name="customBaselayer" label="MOD_OSMOD_CUSTOMBASELAYER" description="MOD_OSMOD_CUSTOMBASELAYER_DESC" default=""/>
@@ -69,7 +72,7 @@
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
-				<field type="list" name="attrLeaflet" default="1" label="MOD_OSMOD_ATTRLEAFLET" description="MOD_OSMOD_ATTRLEAFLET_DESC">
+				<field type="list" name="attrLeaflet" default="0" label="MOD_OSMOD_ATTRLEAFLET" description="MOD_OSMOD_ATTRLEAFLET_DESC">
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>

@@ -1,0 +1,18 @@
+OSModul Changelog
+-----------------
+
+v2.6
+ - Update Leaflet to 0.7.3
+ - Update tile map providers
+ 
+v2.5
+ - Option to disable WorldWarp
+ 
+v2.4:
+ - Fix: some "PHP strict" warnings
+ - Fix: Marker wasn't shown at all "copies" of the world
+
+v2.3:
+ - Joomla 3.0 support
+ - Missing Icon in module settings fixed
+ - Leaflet updated to v0.5.1
