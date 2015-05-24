@@ -15,3 +15,6 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 - custom tile server support
 - auto update
 - moduleclass suffix
+
+## Demo usage
+[http://hof-ronig.de](http://hof-ronig.de/)
