@@ -13,8 +13,8 @@ require_once(dirname(__FILE__).'/helper.php');
 
 // include skripts/styles to the header
 $document =& JFactory::getDocument();
-$document->addStyleSheet('modules/mod_osmod/leaflet/leaflet.css');
-$document->addScript('modules/mod_osmod/leaflet/leaflet.js');
+$document->addStyleSheet('media/mod_osmod/leaflet/leaflet.css');
+$document->addScript('media/mod_osmod/leaflet/leaflet.js');
 $document->addStyleDeclaration( ModOsmodHelper::style($params, $module->id) );
 
 // create javascript

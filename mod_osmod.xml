@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5" client="site" method="upgrade">
+    
+    <!-- Metadata -->
 	<name>OSModul</name>
 	<author>Martin Kröll</author>
-	<creationDate>21.05.2015</creationDate>
+	<creationDate>31.05.2015</creationDate>
 	<copyright>(c) 2012-2015 Martin Kröll</copyright>
 	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
 	<authorEmail>technikschlumpf@web.de</authorEmail>
 	<authorUrl>http://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
-	<version>2.6</version>
+	<version>2.7</version>
 	<description>MOD_OSMOD_DESCRIPTION</description>
 
+    <!-- Update servers -->
 	<updateservers>
 		<server type="extension" priority="1" name="OSModul at hof-ronig.de">http://jextensions.hof-ronig.de/mod_osmod/update.xml</server>
 	</updateservers>
+    
+    <!-- Script file -->
+    <scriptfile>mod_osmod.script.php</scriptfile>
 
+    <!-- Front-end files -->
 	<files>
-		<folder>images</folder>
 		<folder>language</folder>
-		<folder>leaflet</folder>
 		<folder>tmpl</folder>
 		<filename>mod_osmod.xml</filename>
 		<filename module="mod_osmod">mod_osmod.php</filename>
@@ -25,18 +30,19 @@
 		<filename>index.html</filename>
         <filename>CHANGES</filename>
 	</files>
+    
+    <!-- Media files -->
+    <media destination="mod_osmod">
+        <folder>leaflet</folder>
+        <folder>images</folder>
+    </media>
 
-	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.mod_osmod.ini</language>
-		<language tag="en-GB">en-GB/en-GB.mod_osmod.sys.ini</language>
-		<language tag="de-DE">de-DE/de-DE.mod_osmod.ini</language>
-		<language tag="de-DE">de-DE/de-DE.mod_osmod.sys.ini</language>
-	</languages>
-
+    <!-- Configuration -->
 	<config>
 		<fields name="params">
 			<fieldset name="mapConfig" label="MOD_OSMOD_H_MAP">
 				<field type="text" name="height" label="MOD_OSMOD_HEIGHT" description="MOD_OSMOD_HEIGHT_DESC" default="200"/>
+                
 				<field type="list" name="zoom" default="12" label="MOD_OSMOD_ZOOM" description="MOD_OSMOD_ZOOM_DESC">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -57,6 +63,7 @@
 					<option value="17">17</option>
 					<option value="18">18</option>
 				</field>
+                
 				<field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
   					<option value="mapnik">OpenStreetMap</option>
   					<option value="mapnikde">OpenStreetMap DE</option>
@@ -66,20 +73,30 @@
                     <option value="openmapsurfer">OpenMapSurfer</option>
 					<option value="custom">custom</option>
 				</field>
+                
 				<field type="text" name="customBaselayer" label="MOD_OSMOD_CUSTOMBASELAYER" description="MOD_OSMOD_CUSTOMBASELAYER_DESC" default=""/>
 				<field type="text" name="customBaselayerURL" label="MOD_OSMOD_CUSTOMBASELAYERURL" description="MOD_OSMOD_CUSTOMBASELAYERURL_DESC" default=""/>
+                
+                <field type="checkboxes" name="scale" label="MOD_OSMOD_SCALE" description="MOD_OSMOD_SCALE_DESC">
+                    <option value="metric">MOD_OSMOD_METRIC</option>
+                    <option value="imperial">MOD_OSMOD_IMPERIAL</option>
+                </field>
+                
 				<field type="list" name="noWorldWarp" default="0" label="MOD_OSMOD_NOWORLDWARP" description="MOD_OSMOD_NOWORLDWARP_DESC">
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+                
 				<field type="list" name="attrLeaflet" default="0" label="MOD_OSMOD_ATTRLEAFLET" description="MOD_OSMOD_ATTRLEAFLET_DESC">
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+                
 				<field type="list" name="attrImagery" default="1" label="MOD_OSMOD_ATTRIMAGERY" description="MOD_OSMOD_ATTRIMAGERY_DESC">
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+                
 				<field type="list" name="attrModule" default="1" label="MOD_OSMOD_ATTRMODULE" description="MOD_OSMOD_ATTRMODULE_DESC">
   					<option value="1">JYES</option>
 					<option value="0">JNO</option>
@@ -87,6 +104,7 @@
 
 				<field type="spacer" name="spacerPos0" hr="true" />
 				<field type="spacer" name="spacerPos" label="MOD_OSMOD_POSITION" class="text"/>
+                
 				<field type="text" name="lon" label="MOD_OSMOD_LON" description="MOD_OSMOD_LON_DESC" default="7.316633"/>
 				<field type="text" name="lat" label="MOD_OSMOD_LAT" description="MOD_OSMOD_LAT_DESC" default="50.560715"/>
 			</fieldset>
@@ -94,7 +112,7 @@
 			<fieldset name="pinConfig" label="MOD_OSMOD_H_PIN">
 				<field type="radio" name="pin" default="1" label="MOD_OSMOD_PIN" description="MOD_OSMOD_PIN_DESC">
 					<option value="0">MOD_OSMOD_NOPIN</option>
-  					<option value="1">&lt;img src="../modules/mod_osmod/leaflet/images/marker-icon.png" alt="default" /&gt;</option>
+  					<option value="1">&lt;img src="../media/mod_osmod/leaflet/images/marker-icon.png" alt="default" /&gt;</option>
 					<option value="2">MOD_OSMOD_OWNPIN</option>
 				</field>
 

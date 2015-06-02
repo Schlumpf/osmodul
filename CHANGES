@@ -1,6 +1,10 @@
 OSModul Changelog
 -----------------
 
+v2.7
+ - Option to display scale
+ - Internal changes
+
 v2.6
  - Update Leaflet to 0.7.3
  - Update tile map providers

@@ -26,6 +26,28 @@ class ModOsmodHelper{
 		else if($bl == 'custom')       $return = $style;
 		return $return;
 	}
+	
+	private static function scale($params, $id){
+        $return = "";
+		if (count($params->get('scale')) > 0) {
+           $return .= "L.control.scale({";
+            
+            if (in_array('metric', $params->get('scale'))) {
+                $return .= "metric:true";
+            } else {
+                $return .= "metric:false";
+            }
+            
+            if (in_array('imperial', $params->get('scale'))) {
+                $return .= ",imperial:true";
+            } else {
+                $return .= ",imperial:false";
+            }
+            
+            $return .= "}).addTo(map".$id.");\n";
+		}
+		return $return;
+	}
 
 	// to header
 	public static function style($params, $id){
@@ -185,6 +207,9 @@ class ModOsmodHelper{
 		$js .= "    map".$id.".attributionControl.setPrefix('');\n";
 		$js .= "var baselayer".$id." = new L.TileLayer('".$baselayerURL."', {".$baselayerSettings.$nowarp."attribution: '<a href=\"http://www.openstreetmap.org/copyright\" target=\"_blank\">© OpenStreetMap contributors</a>'});\n";
 		$js .= "var koord".$id."     = new L.LatLng(".$lat.", ".$lon.");\n";
+		
+		// Scale
+		$js .= self::scale($params, $id);
 
 		// Attribution
 		if ($params->get('attrLeaflet', 1) == 1) {
