@@ -73,6 +73,7 @@
 	    	    <option value="mapquest">MapQuest</option>
 	    	    <option value="opentopomap">OpenTopoMap</option>
 	    	    <option value="openmapsurfer">OpenMapSurfer</option>
+		    <option value="humanitarian">Humanitarian</option>
 	    	    <option value="custom">custom</option>
 	    	</field>
 		
