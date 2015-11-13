@@ -18,12 +18,12 @@ class ModOsmodHelper{
 	
 	private static function imagery($bl, $style){
 		$return = "";
-             if($bl == 'mapnikde')     $return = '<a href="http://www.openstreetmap.de/">Openstreetmap.de</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)';
-		else if($bl == 'stamenwater')  $return = '<a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>';
-		else if($bl == 'mapquest')     $return = '<a href="http://www.mapquest.com/">MapQuest</a>';
-		else if($bl == 'opentopomap')  $return = '<a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>), <a href="http://viewfinderpanoramas.org">SRTM</a>';
-		else if($bl == 'openmapsurfer')$return = '<a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a>';
-		else if($bl == 'custom')       $return = $style;
+		if($bl == 'mapnikde')           $return = '<a href="http://www.openstreetmap.de/">Openstreetmap.de</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)';
+		else if($bl == 'stamenwater')   $return = '<a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>';
+		else if($bl == 'mapquest')      $return = '<a href="http://www.mapquest.com/">MapQuest</a>';
+		else if($bl == 'opentopomap')   $return = '<a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>), <a href="http://viewfinderpanoramas.org">SRTM</a>';
+		else if($bl == 'openmapsurfer') $return = '<a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a>';
+		else if($bl == 'custom')        $return = $style;
 		return $return;
 	}
 	

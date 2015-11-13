@@ -2,163 +2,163 @@
 <extension type="module" version="2.5" client="site" method="upgrade">
     
     <!-- Metadata -->
-	<name>OSModul</name>
-	<author>Martin Kröll</author>
-	<creationDate>31.05.2015</creationDate>
-	<copyright>(c) 2012-2015 Martin Kröll</copyright>
-	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
-	<authorEmail>technikschlumpf@web.de</authorEmail>
-	<authorUrl>http://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
-	<version>2.7</version>
-	<description>MOD_OSMOD_DESCRIPTION</description>
-
+    <name>OSModul</name>
+    <author>Martin Kröll</author>
+    <creationDate>31.05.2015</creationDate>
+    <copyright>(c) 2012-2015 Martin Kröll</copyright>
+    <license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
+    <authorEmail>technikschlumpf@web.de</authorEmail>
+    <authorUrl>http://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
+    <version>2.7</version>
+    <description>MOD_OSMOD_DESCRIPTION</description>
+    
     <!-- Update servers -->
-	<updateservers>
-		<server type="extension" priority="1" name="OSModul at hof-ronig.de">http://jextensions.hof-ronig.de/mod_osmod/update.xml</server>
-	</updateservers>
+    <updateservers>
+	<server type="extension" priority="1" name="OSModul at hof-ronig.de">http://jextensions.hof-ronig.de/mod_osmod/update.xml</server>
+    </updateservers>
     
     <!-- Script file -->
     <scriptfile>mod_osmod.script.php</scriptfile>
-
+    
     <!-- Front-end files -->
-	<files>
-		<folder>language</folder>
-		<folder>tmpl</folder>
-		<filename>mod_osmod.xml</filename>
-		<filename module="mod_osmod">mod_osmod.php</filename>
-		<filename>helper.php</filename>
-		<filename>index.html</filename>
-        <filename>CHANGES</filename>
-	</files>
+    <files>
+	<folder>language</folder>
+	<folder>tmpl</folder>
+	<filename>mod_osmod.xml</filename>
+	<filename module="mod_osmod">mod_osmod.php</filename>
+	<filename>helper.php</filename>
+	<filename>index.html</filename>
+	<filename>CHANGES</filename>
+    </files>
     
     <!-- Media files -->
     <media destination="mod_osmod">
-        <folder>leaflet</folder>
-        <folder>images</folder>
+	<folder>leaflet</folder>
+	<folder>images</folder>
     </media>
-
+    
     <!-- Configuration -->
-	<config>
-		<fields name="params">
-			<fieldset name="mapConfig" label="MOD_OSMOD_H_MAP">
-				<field type="text" name="height" label="MOD_OSMOD_HEIGHT" description="MOD_OSMOD_HEIGHT_DESC" default="200"/>
-                
-				<field type="list" name="zoom" default="12" label="MOD_OSMOD_ZOOM" description="MOD_OSMOD_ZOOM_DESC">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-				</field>
-                
-				<field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
-  					<option value="mapnik">OpenStreetMap</option>
-  					<option value="mapnikde">OpenStreetMap DE</option>
-                    <option value="stamenwater">Stamen Watercolor</option>
-					<option value="mapquest">MapQuest</option>
-                    <option value="opentopomap">OpenTopoMap</option>
-                    <option value="openmapsurfer">OpenMapSurfer</option>
-					<option value="custom">custom</option>
-				</field>
-                
-				<field type="text" name="customBaselayer" label="MOD_OSMOD_CUSTOMBASELAYER" description="MOD_OSMOD_CUSTOMBASELAYER_DESC" default=""/>
-				<field type="text" name="customBaselayerURL" label="MOD_OSMOD_CUSTOMBASELAYERURL" description="MOD_OSMOD_CUSTOMBASELAYERURL_DESC" default=""/>
-                
-                <field type="checkboxes" name="scale" label="MOD_OSMOD_SCALE" description="MOD_OSMOD_SCALE_DESC">
-                    <option value="metric">MOD_OSMOD_METRIC</option>
-                    <option value="imperial">MOD_OSMOD_IMPERIAL</option>
-                </field>
-                
-				<field type="list" name="noWorldWarp" default="0" label="MOD_OSMOD_NOWORLDWARP" description="MOD_OSMOD_NOWORLDWARP_DESC">
-  					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-                
-				<field type="list" name="attrLeaflet" default="0" label="MOD_OSMOD_ATTRLEAFLET" description="MOD_OSMOD_ATTRLEAFLET_DESC">
-  					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-                
-				<field type="list" name="attrImagery" default="1" label="MOD_OSMOD_ATTRIMAGERY" description="MOD_OSMOD_ATTRIMAGERY_DESC">
-  					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-                
-				<field type="list" name="attrModule" default="1" label="MOD_OSMOD_ATTRMODULE" description="MOD_OSMOD_ATTRMODULE_DESC">
-  					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-
-				<field type="spacer" name="spacerPos0" hr="true" />
-				<field type="spacer" name="spacerPos" label="MOD_OSMOD_POSITION" class="text"/>
-                
-				<field type="text" name="lon" label="MOD_OSMOD_LON" description="MOD_OSMOD_LON_DESC" default="7.316633"/>
-				<field type="text" name="lat" label="MOD_OSMOD_LAT" description="MOD_OSMOD_LAT_DESC" default="50.560715"/>
-			</fieldset>
-
-			<fieldset name="pinConfig" label="MOD_OSMOD_H_PIN">
-				<field type="radio" name="pin" default="1" label="MOD_OSMOD_PIN" description="MOD_OSMOD_PIN_DESC">
-					<option value="0">MOD_OSMOD_NOPIN</option>
-  					<option value="1">&lt;img src="../media/mod_osmod/leaflet/images/marker-icon.png" alt="default" /&gt;</option>
-					<option value="2">MOD_OSMOD_OWNPIN</option>
-				</field>
-
-				<field type="spacer" name="spacerPin0" hr="true" />
-				<field type="spacer" name="spacerPin" label="MOD_OSMOD_PINPATH" class="text"/>
-
-				<field type="media" name="customPinPath" label="MOD_OSMOD_PINPATH" description="MOD_OSMOD_PINPATH_DESC" default=""/>
-				<field type="text" name="customPinSize" label="MOD_OSMOD_PINSIZE" description="MOD_OSMOD_PINSIZE_DESC" default="24x24"/>
-				<field type="media" name="customPinShadowPath" label="MOD_OSMOD_PINSHADOWPATH" description="MOD_OSMOD_PINSHADOWPATH_DESC" default=""/>
-				<field type="text" name="customPinShadowSize" label="MOD_OSMOD_PINSHADOWSIZE" description="MOD_OSMOD_PINSHADOWSIZE_DESC" default="0x0"/>
-
-				<field type="text" name="customPinOffset" label="MOD_OSMOD_PINOFFSET" description="MOD_OSMOD_PINOFFSET_DESC" default="0x0"/>
-				<field type="text" name="customPinPopupOffset" label="MOD_OSMOD_PINPOPUPOFFSET" description="MOD_OSMOD_PINPOPUPOFFSET_DESC" default="0x0"/>
-
-				<field type="spacer" name="spacerPopup0" hr="true" />
-				<field type="spacer" name="spacerPopup" label="MOD_OSMOD_HPOPUP" class="text"/>
-				<field type="list" name="popup" default="0" label="MOD_OSMOD_POPUP" description="MOD_OSMOD_POPUP_DESC">
-					<option value="1">MOD_OSMOD_KLICK</option>
-  					<option value="2">MOD_OSMOD_ALWAYS</option>
-					<option value="0">MOD_OSMOD_NEVER</option>
-				</field>
-			</fieldset>
-			
-			<!-- Popup Text -->
-			<fieldset name="popoupConfig" label="MOD_OSMOD_POPUPTEXT">
-				<field type="editor" name="popuptext"  default="" label="MOD_OSMOD_POPUPTEXT" description="MOD_OSMOD_POPUPTEXT_DESC" filter="safehtml"/>
-			</fieldset>
-
-			<!-- Multipin -->
-			<fieldset name="multipinConfig" label="MOD_OSMOD_MP_MULTIPIN">
-				<field name="pins" type="textarea" default="" label="MOD_OSMOD_MP_PINS" description="MOD_OSMOD_MP_PINS_DESC" />
-				<field name="custompins" type="textarea" default="" label="MOD_OSMOD_MP_CUSTOMS" description="MOD_OSMOD_MP_CUSTOMS_DESC" />
-				<field name="popups" type="textarea" default="" label="MOD_OSMOD_MP_POPUPS" description="MOD_OSMOD_MP_POPUPS_DESC" filter="raw" />
-			</fieldset>
-			
-			<!-- advanced -->
-			<fieldset name="advanced">
-				<field
-					name="moduleclass_sfx"
-					type="text"
-					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
-			</fieldset>
-			
-		</fields>
-	</config>
+    <config>
+	<fields name="params">
+	    <fieldset name="mapConfig" label="MOD_OSMOD_H_MAP">
+	    	<field type="text" name="height" label="MOD_OSMOD_HEIGHT" description="MOD_OSMOD_HEIGHT_DESC" default="200"/>
+		
+	    	<field type="list" name="zoom" default="12" label="MOD_OSMOD_ZOOM" description="MOD_OSMOD_ZOOM_DESC">
+	    	    <option value="1">1</option>
+	    	    <option value="2">2</option>
+	    	    <option value="3">3</option>
+	    	    <option value="4">4</option>
+	    	    <option value="5">5</option>
+	    	    <option value="6">6</option>
+	    	    <option value="7">7</option>
+	    	    <option value="8">8</option>
+	    	    <option value="9">9</option>
+	    	    <option value="10">10</option>
+	    	    <option value="11">11</option>
+	    	    <option value="12">12</option>
+	    	    <option value="13">13</option>
+	    	    <option value="14">14</option>
+	    	    <option value="15">15</option>
+	    	    <option value="16">16</option>
+	    	    <option value="17">17</option>
+	    	    <option value="18">18</option>
+	    	    <option value="19">19</option>
+	    	    <option value="20">20</option>
+	    	</field>
+		
+	    	<field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
+	    	    <option value="mapnik">OpenStreetMap</option>
+	    	    <option value="mapnikde">OpenStreetMap DE</option>
+	    	    <option value="stamenwater">Stamen Watercolor</option>
+	    	    <option value="mapquest">MapQuest</option>
+	    	    <option value="opentopomap">OpenTopoMap</option>
+	    	    <option value="openmapsurfer">OpenMapSurfer</option>
+	    	    <option value="custom">custom</option>
+	    	</field>
+		
+	    	<field type="text" name="customBaselayer" label="MOD_OSMOD_CUSTOMBASELAYER" description="MOD_OSMOD_CUSTOMBASELAYER_DESC" default=""/>
+	    	<field type="text" name="customBaselayerURL" label="MOD_OSMOD_CUSTOMBASELAYERURL" description="MOD_OSMOD_CUSTOMBASELAYERURL_DESC" default=""/>
+		
+		<field type="checkboxes" name="scale" label="MOD_OSMOD_SCALE" description="MOD_OSMOD_SCALE_DESC">
+		    <option value="metric">MOD_OSMOD_METRIC</option>
+		    <option value="imperial">MOD_OSMOD_IMPERIAL</option>
+		</field>
+		
+	    	<field type="list" name="noWorldWarp" default="0" label="MOD_OSMOD_NOWORLDWARP" description="MOD_OSMOD_NOWORLDWARP_DESC">
+	    	    <option value="1">JYES</option>
+	    	    <option value="0">JNO</option>
+	    	</field>
+		
+	    	<field type="list" name="attrLeaflet" default="0" label="MOD_OSMOD_ATTRLEAFLET" description="MOD_OSMOD_ATTRLEAFLET_DESC">
+	    	    <option value="1">JYES</option>
+	    	    <option value="0">JNO</option>
+	    	</field>
+		
+	    	<field type="list" name="attrImagery" default="1" label="MOD_OSMOD_ATTRIMAGERY" description="MOD_OSMOD_ATTRIMAGERY_DESC">
+	    	    <option value="1">JYES</option>
+	    	    <option value="0">JNO</option>
+	    	</field>
+		
+	    	<field type="list" name="attrModule" default="1" label="MOD_OSMOD_ATTRMODULE" description="MOD_OSMOD_ATTRMODULE_DESC">
+	    	    <option value="1">JYES</option>
+	    	    <option value="0">JNO</option>
+	    	</field>
+		
+	    	<field type="spacer" name="spacerPos0" hr="true" />
+	    	<field type="spacer" name="spacerPos" label="MOD_OSMOD_POSITION" class="text"/>
+		
+	    	<field type="text" name="lon" label="MOD_OSMOD_LON" description="MOD_OSMOD_LON_DESC" default="7.316633"/>
+	    	<field type="text" name="lat" label="MOD_OSMOD_LAT" description="MOD_OSMOD_LAT_DESC" default="50.560715"/>
+	    </fieldset>
+	    
+	    <fieldset name="pinConfig" label="MOD_OSMOD_H_PIN">
+	    	<field type="radio" name="pin" default="1" label="MOD_OSMOD_PIN" description="MOD_OSMOD_PIN_DESC">
+	    	    <option value="0">MOD_OSMOD_NOPIN</option>
+	    	    <option value="1">&lt;img src="../media/mod_osmod/leaflet/images/marker-icon.png" alt="default" /&gt;</option>
+	    	    <option value="2">MOD_OSMOD_OWNPIN</option>
+	    	</field>
+		
+	    	<field type="spacer" name="spacerPin0" hr="true" />
+	    	<field type="spacer" name="spacerPin" label="MOD_OSMOD_PINPATH" class="text"/>
+		
+	    	<field type="media" name="customPinPath" label="MOD_OSMOD_PINPATH" description="MOD_OSMOD_PINPATH_DESC" default=""/>
+	    	<field type="text" name="customPinSize" label="MOD_OSMOD_PINSIZE" description="MOD_OSMOD_PINSIZE_DESC" default="24x24"/>
+	    	<field type="media" name="customPinShadowPath" label="MOD_OSMOD_PINSHADOWPATH" description="MOD_OSMOD_PINSHADOWPATH_DESC" default=""/>
+	    	<field type="text" name="customPinShadowSize" label="MOD_OSMOD_PINSHADOWSIZE" description="MOD_OSMOD_PINSHADOWSIZE_DESC" default="0x0"/>
+		
+	    	<field type="text" name="customPinOffset" label="MOD_OSMOD_PINOFFSET" description="MOD_OSMOD_PINOFFSET_DESC" default="0x0"/>
+	    	<field type="text" name="customPinPopupOffset" label="MOD_OSMOD_PINPOPUPOFFSET" description="MOD_OSMOD_PINPOPUPOFFSET_DESC" default="0x0"/>
+		
+	    	<field type="spacer" name="spacerPopup0" hr="true" />
+	    	<field type="spacer" name="spacerPopup" label="MOD_OSMOD_HPOPUP" class="text"/>
+	    	<field type="list" name="popup" default="0" label="MOD_OSMOD_POPUP" description="MOD_OSMOD_POPUP_DESC">
+	    	    <option value="1">MOD_OSMOD_KLICK</option>
+	    	    <option value="2">MOD_OSMOD_ALWAYS</option>
+	    	    <option value="0">MOD_OSMOD_NEVER</option>
+	    	</field>
+	    </fieldset>
+	    
+	    <!-- Popup Text -->
+	    <fieldset name="popoupConfig" label="MOD_OSMOD_POPUPTEXT">
+	    	<field type="editor" name="popuptext"  default="" label="MOD_OSMOD_POPUPTEXT" description="MOD_OSMOD_POPUPTEXT_DESC" filter="safehtml"/>
+	    </fieldset>
+	    
+	    <!-- Multipin -->
+	    <fieldset name="multipinConfig" label="MOD_OSMOD_MP_MULTIPIN">
+	    	<field name="pins" type="textarea" default="" label="MOD_OSMOD_MP_PINS" description="MOD_OSMOD_MP_PINS_DESC" />
+	    	<field name="custompins" type="textarea" default="" label="MOD_OSMOD_MP_CUSTOMS" description="MOD_OSMOD_MP_CUSTOMS_DESC" />
+	    	<field name="popups" type="textarea" default="" label="MOD_OSMOD_MP_POPUPS" description="MOD_OSMOD_MP_POPUPS_DESC" filter="raw" />
+	    </fieldset>
+	    
+	    <!-- advanced -->
+	    <fieldset name="advanced">
+	    	<field
+	    	    name="moduleclass_sfx"
+	    	    type="text"
+	    	    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+	    	    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+	    </fieldset>
+	    
+	</fields>
+    </config>
 </extension>
