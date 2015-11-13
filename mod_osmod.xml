@@ -62,6 +62,8 @@
 					<option value="16">16</option>
 					<option value="17">17</option>
 					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
 				</field>
                 
 				<field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
