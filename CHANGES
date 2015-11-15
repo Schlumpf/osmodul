@@ -1,8 +1,13 @@
 OSModul Changelog
 -----------------
 
+v2.8
+ - Fix missing image in module description
+ - Add add humanitarian (hot) map style (Thanks to Thomas Cujé)
+ - Internal changes
+
 v2.7
- - Option to display scale
+ - Option to display map scale
  - Internal changes
 
 v2.6
