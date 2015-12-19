@@ -6,7 +6,7 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 - Set markers to the map
 - multiple marker support
 - marker popup
-- languages: EN, DE, (FR addon)
+- languages: EN, DE, FR
 - custom marker support
 - based on Leaflet -> nice design
 - different maps on one site
@@ -15,6 +15,10 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 - custom tile server support
 - auto update
 - moduleclass suffix
+- map scale
 
 ## Demo usage
-[http://hof-ronig.de](http://hof-ronig.de/)
+[http://hof-ronig.de](http://hof-ronig.de)
+
+## Help
+For help and more information, take a look to the [Wiki](https://github.com/Schlumpf/osmodul/wiki).
