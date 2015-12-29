@@ -131,18 +131,19 @@ class ModOsmodHelper{
         // Pins parsen
         foreach($exp as $pin){
             if($pin != ''){
-                preg_match('/#(?P<name>\w+)\s*\{\s*\(\s*(?P<coords>\-?\d+\.?\d*\s*\,\s*\-?\d+\.?\d*\s*)\)\s*\,\s*(?:#(?P<skin>\w+))?\s*\,\s*(?:\{\s*#(?P<popup>\w+)\s*\,\s*(?P<show>click|always)\s*\})?\s*\}/', $pin, $treffer);
+                preg_match('/#(?P<name>\w+)\s*\{\s*\(\s*(?P<coords>\-?\d+\.?\d*\s*\,\s*\-?\d+\.?\d*\s*)\)\s*\,\s*(?:#(?P<skin>\w+))?\s*\,\s*(?:\{\s*#(?P<popup>\w+)\s*\,\s*(?P<show>click|always|immediately)\s*\})?\s*\}/', $pin, $treffer);
 
                 $ret .= "var mpK".$id."_".$treffer['name']."  = new L.LatLng(".$treffer['coords'].");\n";                // Koordinaten anlegen
-                $cp   = ''; if($treffer['skin'] != '') $cp = ", {icon: new mpC".$id."_".$treffer['skin']."()}";            // Custom Icon verknüpfen
+                $cp   = ''; if($treffer['skin'] != '') $cp = ", {icon: new mpC".$id."_".$treffer['skin']."()}";          // Custom Icon verknüpfen
                 $ret .= "var mpM".$id."_".$treffer['name']." = new L.Marker(mpK".$id."_".$treffer['name'].$cp.");\n";    // Marker anlegen
-                $ret .= "map".$id.".addLayer(mpM".$id."_".$treffer['name'].");\n";                                        // Marker auf Karte setzen
+                $ret .= "map".$id.".addLayer(mpM".$id."_".$treffer['name'].");\n";                                       // Marker auf Karte setzen
 
                 // Popup verknüpfen
                 if($treffer['popup'] != ''){
-                    $ret .= "mpM".$id."_".$treffer['name'].".bindPopup(mpP".$id."_".$treffer['popup'].")";
-                    if($treffer['show'] == 'always' | $treffer['show'] == 'immediately') $ret .= '.openPopup()';
-                    $ret .= ";\n";
+                    $ret .= "mpM".$id."_".$treffer['name'].".bindPopup(mpP".$id."_".$treffer['popup'].");\n";
+                    if($treffer['show'] == 'always' | $treffer['show'] == 'immediately') {
+                        $ret .= "mpM".$id."_".$treffer['name'].".openPopup();\n";
+                    }
                 }
             }
         }
@@ -233,15 +234,15 @@ class ModOsmodHelper{
         }
         if($params->get('pin', 1) > 0) $js .= "map".$id.".addLayer(marker".$id.");\n";
 
+        // Karte ausrichten
+        $js .= "// set map view\n";
+        $js .= "map".$id.".setView(koord".$id.", ".$zoom.").addLayer(baselayer".$id.");\n";
+
         // Multi-marker
         $js .= "// additional Pins\n";
         $js .= self::mpCustompin( $params->get('custompins', ''), $id ); // Create custom pin styles
         $js .= self::mpPopups(    $params->get('popups', ''),     $id ); // Create Popup contents
         $js .= self::mpPins(      $params->get('pins', ''),       $id ); // Create pins and add Popups
-
-        // Karte ausrichten
-        $js .= "// set map view\n";
-        $js .= "map".$id.".setView(koord".$id.", ".$zoom.").addLayer(baselayer".$id.");\n";
 
         // Popup anzeigen
         $js .= $popup.";\n";
