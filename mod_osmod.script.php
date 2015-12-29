@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright   Copyright (C) Martin Kröll. All Rights Reserved.
- * @license     tp://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  */
 
 // No direct access to this file
@@ -44,6 +44,27 @@ class mod_osmodInstallerScript
         // $type is the type of change (install, update or discover_install)
         echo '<p>' . JText::_('MOD_OSMOD_PREFLIGHT') . '<ul>';
 
+        // Remove FR language pack
+        $db    = JFactory::getDBO();
+        $query = $db->getQuery(true);
+        $query->select($db->quoteName(array('extension_id', 'name')))
+              ->from($db->quoteName('#__extensions'))
+              ->where($db->quoteName('element') . ' = '. $db->quote('OSModulFrenchPack'));
+        $db->setQuery($query);
+        
+        $frPack = $db->loadRow();
+        if(!empty($frPack)) {
+            echo '<li>' . $frPack[1] . '</li>';
+            $query = $db->getQuery(true);
+            $query->delete($db->quoteName('#__extensions'))
+                  ->where($db->quoteName('extension_id') . ' = '. $frPack[0]);
+            $db->setQuery($query);
+            $db->execute();
+            rrmdir(JPATH_ROOT . '/modules/mod_osmod/language/fr-FR');
+        }
+        
+
+        // Remove files from older releases
         $folders = array('/modules/mod_osmod/leaflet',
                          '/modules/mod_osmod/images');
 
@@ -51,14 +72,14 @@ class mod_osmodInstallerScript
                        '/language/de-DE/de-DE.mod_osmod.sys.ini',
                        '/language/en-GB/en-GB.mod_osmod.ini',
                        '/language/en-GB/en-GB.mod_osmod.sys.ini');
-
+                       
         foreach ($folders as &$f) {
             if (file_exists(JPATH_ROOT . $f)) {
                 echo '<li>' . JPATH_ROOT . $f . '</li>';
                 rrmdir(JPATH_ROOT . $f);
             }
         }
-
+        
         foreach ($files as &$f) {
             if (file_exists(JPATH_ROOT . $f)) {
                 echo '<li>' . JPATH_ROOT . $f . '</li>';
