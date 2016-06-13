@@ -1,6 +1,9 @@
 OSModul Changelog
 -----------------
 
+v2.12
+ - Fix root dir for asserts
+
 v2.11
  - Use https for supporting tile servers
 
