@@ -1,6 +1,9 @@
 OSModul Changelog
 -----------------
 
+v2.11
+ - Use https for supporting tile servers
+
 v2.10
  - Include fr-FR language (Thanks to bcag2)
    - Installations of old third-party FR language pack will removed

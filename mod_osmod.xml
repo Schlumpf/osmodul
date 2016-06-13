@@ -4,12 +4,12 @@
     <!-- Metadata -->
     <name>OSModul</name>
     <author>Martin Kröll</author>
-    <creationDate>29.12.2015</creationDate>
-    <copyright>(c) 2012-2015 Martin Kröll</copyright>
-    <license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
+    <creationDate>02.05.2016</creationDate>
+    <copyright>(c) 2012-2016 Martin Kröll</copyright>
+    <license>https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>technikschlumpf@web.de</authorEmail>
-    <authorUrl>http://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
-    <version>2.10</version>
+    <authorUrl>https://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
+    <version>2.11</version>
     <description>MOD_OSMOD_DESCRIPTION</description>
 
     <!-- Update servers -->
@@ -100,7 +100,7 @@
                 <option value="0">JNO</option>
             </field>
 
-            <field type="list" name="attrModule" default="1" label="MOD_OSMOD_ATTRMODULE" description="MOD_OSMOD_ATTRMODULE_DESC">
+            <field type="list" name="attrModule" default="0" label="MOD_OSMOD_ATTRMODULE" description="MOD_OSMOD_ATTRMODULE_DESC">
                 <option value="1">JYES</option>
                 <option value="0">JNO</option>
             </field>
