@@ -19,6 +19,7 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 
 ## Demo usage
 [http://hof-ronig.de](http://hof-ronig.de)
+[http://www.sailcom.ch](http://www.sailcom.ch/de/flotte/bootsstandorte)
 
 ## Help
 For help and more information, take a look to the [Wiki](https://github.com/Schlumpf/osmodul/wiki).
