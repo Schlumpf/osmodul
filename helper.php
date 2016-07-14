@@ -20,7 +20,6 @@ class ModOsmodHelper{
         $return = "";
         if($bl == 'mapnikde')           $return = '<a href="http://www.openstreetmap.de/">Openstreetmap.de</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)';
         else if($bl == 'stamenwater')   $return = '<a href="http://stamen.com">Stamen Design</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>';
-        else if($bl == 'mapquest')      $return = '<a href="https://www.mapquest.com/">MapQuest</a>';
         else if($bl == 'opentopomap')   $return = '<a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>), <a href="http://viewfinderpanoramas.org">SRTM</a>';
         else if($bl == 'openmapsurfer') $return = '<a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a>';
         else if($bl == 'humanitarian')  $return = '<a href="https://hotosm.org/">Humanitarian OpenStreetMap Team</a>';
@@ -155,14 +154,13 @@ class ModOsmodHelper{
     public static function javascript($params, $id){
         // load baselayerURL
         $baselayerSettings = '';
-        if     ($params->get('baselayer', 'mapnik') == 'mapnik')        { $baselayerURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';                     $baselayerSettings = "maxZoom: 19, "; }
-        else if($params->get('baselayer', 'mapnik') == 'mapquest')      { $baselayerURL = 'http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}';         $baselayerSettings = "type: 'map', ext: 'jpg', subdomains: '1234', "; }
-        else if($params->get('baselayer', 'mapnik') == 'mapnikde')      { $baselayerURL = 'http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';           $baselayerSettings = "maxZoom: 18, "; }
+        if     ($params->get('baselayer', 'mapnik') == 'mapnikde')      { $baselayerURL = 'http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';           $baselayerSettings = "maxZoom: 18, "; }
         else if($params->get('baselayer', 'mapnik') == 'stamenwater')   { $baselayerURL = 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png';   $baselayerSettings = "subdomains: 'abcd', minZoom: 1, maxZoom: 16, "; }
         else if($params->get('baselayer', 'mapnik') == 'opentopomap')   { $baselayerURL = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';                       $baselayerSettings = "maxZoom: 16, "; }
         else if($params->get('baselayer', 'mapnik') == 'openmapsurfer') { $baselayerURL = 'http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}';     $baselayerSettings = "maxZoom: 20, "; }
         else if($params->get('baselayer', 'mapnik') == 'humanitarian')  { $baselayerURL = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';                  $baselayerSettings = "maxZoom: 20, "; }
         else if($params->get('baselayer', 'mapnik') == 'custom')        { $baselayerURL = $params->get('customBaselayerURL', ''); }
+        else   /* unknown layer and mapnik */                           { $baselayerURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';                     $baselayerSettings = "maxZoom: 19, "; }
 
         // load start coordinates
         $lat  = $params->get('lat', 50.560715);
@@ -218,7 +216,7 @@ class ModOsmodHelper{
         if ($params->get('attrLeaflet', 1) == 1) {
             $js .= "map".$id.".attributionControl.addAttribution('Powered by Leaflet');\n";
         }
-        if ($params->get('attrImagery', 1) == 1 && $params->get('baselayer', 'mapnik') != 'mapnik') {
+        if ($params->get('attrImagery', 1) == 1 && self::imagery($params->get('baselayer', 'mapnik'), $params->get('customBaselayer', "")) != '') {
             $js .= "map".$id.".attributionControl.addAttribution('".JText::_('MOD_OSMOD_IMAGERY')." ".self::imagery($params->get('baselayer', 'mapnik'), $params->get('customBaselayer', ""))."');\n";
         }
         if ($params->get('attrModule',  1) == 1) {

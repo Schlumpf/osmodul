@@ -37,6 +37,7 @@ class mod_osmodInstallerScript
     function update($parent)  {
         // $parent is the class calling this method
         echo '<p>' . JText::sprintf('MOD_OSMOD_UPDATE', $parent->get('manifest')->version) . '</p>';
+        echo '<p><b>Please note, the support for MapQuest has been dropped.</b></p>';
     }
 
     // Before install/update/uninstall

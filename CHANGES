@@ -1,6 +1,9 @@
 OSModul Changelog
 -----------------
 
+v2.13
+ - Remove MapQuest tile server, since they blocked free access to their tile servers
+
 v2.12
  - Fix root dir for asserts
 
