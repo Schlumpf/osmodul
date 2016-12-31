@@ -207,6 +207,7 @@ class ModOsmodHelper{
         if (is_array($params->get('disableInteraction'))) {
             if (in_array('dragging', $params->get('disableInteraction'))) {
                 $mapOtions[] = "dragging: false";
+                $mapOtions[] = "tap: false";
             }
             if (in_array('wheelZoom', $params->get('disableInteraction'))) {
                 $mapOtions[] = "scrollWheelZoom: false";
