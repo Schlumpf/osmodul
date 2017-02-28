@@ -5,6 +5,7 @@
 # author    Martin Kröll
 # copyright Copyright (C) 2012-2015 Martin Kröll. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+# Code changes by *EFD - Implement min/max zoom levels
 --------------------------------------------------------------------------
 */
 // no direct access
@@ -165,8 +166,13 @@ class ModOsmodHelper{
         // load start coordinates
         $lat  = $params->get('lat', 50.560715);
         $lon  = $params->get('lon', 7.316633);
-        $zoom = $params->get('zoom', 12);
-
+        
+        // and the zoom levels *EFD
+        $minzoom = $params->get('minzoom', 10); //*EFD 
+        $zoom 	 = $params->get('zoom', 12);
+        $maxzoom = $params->get('maxzoom', 15); //*EFD 
+        
+         
         // create Popup
         $popup = '';
         if( $params->get('popup', 0) > 0 ){
@@ -197,10 +203,12 @@ class ModOsmodHelper{
         // no worldWarp (no wolrd copies, restrict the view to one world)
         $mapOtions = array();
         if($params->get('noWorldWarp', 0) == 1){
-            $mapOtions[] = "worldCopyJump: false, maxBounds: [ [82, -180], [-82, 180] ]";
+            // *EFD - change options to be min and max zoom and bounds 
+            $mapOtions[] = "worldCopyJump: false, minZoom : ".$minzoom.", maxzoom: ".$maxzoom.", maxBounds: [ [82, -180], [-82, 180] ]";
             $nowarp = "noWrap: true, ";
         }else{
             $nowarp = "noWrap: false, ";
+            $mapOtions[] = " minZoom : ".$minzoom.", maxzoom: ".$maxzoom.",";
         }
 
         // Disable interaction
