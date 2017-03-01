@@ -5,7 +5,8 @@
 # author    Martin Kröll
 # copyright Copyright (C) 2012-2015 Martin Kröll. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
-# Code changes by *EFD - Implement min/max zoom levels
+# Code changes by *EFD - Implement min/max zoom levels 
+# Add English comments where only German ones existed *EFD
 --------------------------------------------------------------------------
 */
 // no direct access
@@ -70,10 +71,10 @@ class ModOsmodHelper{
         // if no custom pins, return
         if($parCustom == '') return '';
 
-        // Einzelne Einträge trennen
+        // Einzelne Einträge trennen - Separate individual entries
         $exp = explode(';', $parCustom);
 
-        // Custompins parsen
+        // Custompins parsen - Custompins parsing
         foreach($exp as $c){
             if($c != ''){
                 preg_match('/#(?P<name>\w+)\s*\{\"(?P<iconUrl>(?:\/?\w+)+\.\w+)\"\s*\,\s*\((?P<iconSize>\d+x\d+)\)\s*\,\s*(?:(?:\"(?P<shadowUrl>(?:(?:\/?\w+)+\.\w+))\")|(?:)|(?:\"\"))\s*\,\s*\((?P<shadowSize>\d+x\d+)\)\s*\,\s*\((?P<iconAnchor>\-?\d+x\-?\d+)\)\s*\,\s*\((?P<popupAnchor>\-?\d+x\-?\d+)\)\s*\}/',$c,$treffer);
@@ -98,13 +99,13 @@ class ModOsmodHelper{
         $ret = "";
         $popups = array();
 
-        // Wenn keine Popups gegben sind, abbrechen
+        // Wenn keine Popups gegben sind, abbrechen - If no popups are given, cancel
         if($parPopups == '') return '';
 
-        // Einzelne Einträge trennen
+        // Einzelne Einträge trennen - Separate individual entries
         $exp = explode('};', $parPopups);
 
-        // Popups parsen
+        // Popups parsen - Popups parsing
         foreach($exp as $p){
             if($p != ''){
                 preg_match('/#(?P<name>\w+)\s*\{\s*(?P<text>.*)\s*\}/', $p.'}', $treffer);
@@ -113,7 +114,7 @@ class ModOsmodHelper{
                 $ret .= "var mpP".$id."_".$treffer['name']." = '".$text."';\n";
             }
         }
-        // Code zurückgeben
+        // Code zurückgeben - code handback (return)
         return $ret;
     }
 
@@ -122,23 +123,23 @@ class ModOsmodHelper{
         $ret = "";
         $markers = array();
 
-        // Wenn keine Pins gegben sind, abbrechen
+        // Wenn keine Pins gegben sind, abbrechen - If no pins are given, abort
         if($parPins == '') return '';
 
-        // Einzelne Einträge trennen
+        // Einzelne Einträge trennen - Separate individual entries
         $exp = explode(';', $parPins);
 
-        // Pins parsen
+        // Pins parsen - pin parsing
         foreach($exp as $pin){
             if($pin != ''){
                 preg_match('/#(?P<name>\w+)\s*\{\s*\(\s*(?P<coords>\-?\d+\.?\d*\s*\,\s*\-?\d+\.?\d*\s*)\)\s*\,\s*(?:#(?P<skin>\w+))?\s*\,\s*(?:\{\s*#(?P<popup>\w+)\s*\,\s*(?P<show>click|always|immediately)\s*\})?\s*\}/', $pin, $treffer);
 
-                $ret .= "var mpK".$id."_".$treffer['name']."  = new L.LatLng(".$treffer['coords'].");\n";                // Koordinaten anlegen
-                $cp   = ''; if($treffer['skin'] != '') $cp = ", {icon: new mpC".$id."_".$treffer['skin']."()}";          // Custom Icon verknüpfen
-                $ret .= "var mpM".$id."_".$treffer['name']." = new L.Marker(mpK".$id."_".$treffer['name'].$cp.");\n";    // Marker anlegen
-                $ret .= "map".$id.".addLayer(mpM".$id."_".$treffer['name'].");\n";                                       // Marker auf Karte setzen
+                $ret .= "var mpK".$id."_".$treffer['name']."  = new L.LatLng(".$treffer['coords'].");\n";                // Koordinaten anlegen - Create coordinates
+                $cp   = ''; if($treffer['skin'] != '') $cp = ", {icon: new mpC".$id."_".$treffer['skin']."()}";          // Custom Icon verknüpfen - Custom Icon link
+                $ret .= "var mpM".$id."_".$treffer['name']." = new L.Marker(mpK".$id."_".$treffer['name'].$cp.");\n";    // Marker anlegen - marker invest
+                $ret .= "map".$id.".addLayer(mpM".$id."_".$treffer['name'].");\n";                                       // Marker auf Karte setzen - Marker onto map?
 
-                // Popup verknüpfen
+                // Popup verknüpfen - popup link
                 if($treffer['popup'] != ''){
                     $ret .= "mpM".$id."_".$treffer['name'].".bindPopup(mpP".$id."_".$treffer['popup'].");\n";
                     if($treffer['show'] == 'always' | $treffer['show'] == 'immediately') {
@@ -147,7 +148,7 @@ class ModOsmodHelper{
                 }
             }
         }
-        // Code zurück geben
+        // Code zurück geben - code handback (return)
         return $ret;
     }
 
@@ -266,7 +267,7 @@ class ModOsmodHelper{
         }
         if($params->get('pin', 1) > 0) $js .= "map".$id.".addLayer(marker".$id.");\n";
 
-        // Karte ausrichten
+        // Karte ausrichten - Align the map
         $js .= "// set map view\n";
         $js .= "map".$id.".setView(koord".$id.", ".$zoom.").addLayer(baselayer".$id.");\n";
 
@@ -276,7 +277,7 @@ class ModOsmodHelper{
         $js .= self::mpPopups(    $params->get('popups', ''),     $id ); // Create Popup contents
         $js .= self::mpPins(      $params->get('pins', ''),       $id ); // Create pins and add Popups
 
-        // Popup anzeigen
+        // Popup anzeigen - show popup
         $js .= $popup.";\n";
 
         // Return Code
