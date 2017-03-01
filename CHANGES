@@ -1,6 +1,15 @@
 OSModul Changelog
 -----------------
 
+v2.14+
+ - Update Leaflet to 1.0.3
+ - Added min and max zoom levels
+ - Added translation of german comments
+
+v2.14
+ - Possibility do disable user interaction
+ - Update Leaflet to 1.0.2
+
 v2.13
  - Remove MapQuest tile server, since they blocked free access to their tile servers
 
