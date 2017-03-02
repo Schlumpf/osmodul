@@ -1,6 +1,7 @@
 # OSModul
 OSModul is a simple module to display a map from [OpenStreetmap](https://openstreetmap.org) on your Joomla website. More information on the [Joomla Extensions Directory](https://extensions.joomla.org/profile/extension/maps-a-weather/maps-a-locations/osmodul)
 
+
 ## Features
 - Easy to use
 - Set markers to the map
@@ -16,6 +17,7 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 - auto update
 - moduleclass suffix
 - map scale
+- Min/Max Zoom setting  - EFD
 
 ## Demo usage
 [http://hof-ronig.de](http://hof-ronig.de)

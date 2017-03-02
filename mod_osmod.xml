@@ -9,8 +9,10 @@
     <license>https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>technikschlumpf@web.de</authorEmail>
     <authorUrl>https://extensions.joomla.org/extensions/owner/schlumpf</authorUrl>
-    <version>2.14</version>
+    <version>2.14plus</version>
     <description>MOD_OSMOD_DESCRIPTION</description>
+    
+    <!-- *EFD Updated to support mazoom 20170222-->
 
     <!-- Update servers -->
     <updateservers>
@@ -42,30 +44,15 @@
     <fields name="params">
         <fieldset name="mapConfig" label="MOD_OSMOD_H_MAP">
             <field type="text" name="height" label="MOD_OSMOD_HEIGHT" description="MOD_OSMOD_HEIGHT_DESC" default="200"/>
-
-            <field type="list" name="zoom" default="12" label="MOD_OSMOD_ZOOM" description="MOD_OSMOD_ZOOM_DESC">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-            </field>
-
+            
+            
+            <!-- Added Min & Max feilds and updated  all zoom fields to integer which require Joomla 2.5+   -->
+            <field name="minzoom" type="integer" default="10" label="MOD_OSMOD_MINZOOM" description="MOD_OSMOD_MINZOOM_DESC" first="1" last="20" step="1" />
+             
+            <field name="zoom" type="integer" default="12" label="MOD_OSMOD_ZOOM" description="MOD_OSMOD_ZOOM_DESC" first="1" last="20" step="1" />
+                        
+            <field name="maxzoom" type="integer" default="15" label="MOD_OSMOD_MAXZOOM" description="MOD_OSMOD_MAXZOOM_DESC" first="1" last="20" step="1" />
+            
             <field type="list" name="baselayer" default="Mapnik" label="MOD_OSMOD_BASELAYER" description="MOD_OSMOD_BASELAYER_DESC">
                 <option value="mapnik">OpenStreetMap</option>
                 <option value="mapnikde">OpenStreetMap DE</option>
