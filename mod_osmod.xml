@@ -22,6 +22,7 @@
 
     <!-- Front-end files -->
     <files>
+    <folder>images</folder>
     <folder>language</folder>
     <folder>tmpl</folder>
     <filename>mod_osmod.xml</filename>
