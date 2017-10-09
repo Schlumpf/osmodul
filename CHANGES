@@ -2,6 +2,7 @@ OSModul Changelog
 -----------------
 
 v2.14
+ - Possibility do disable user interaction
  - Add Dutch translation (Thanks to Roelof Ymker)
  - Update Leaflet to 1.2.0
 

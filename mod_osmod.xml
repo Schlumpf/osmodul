@@ -104,6 +104,17 @@
                 <option value="0">JNO</option>
             </field>
 
+            <field type="checkboxes" name="disableInteraction" label="MOD_OSMOD_DISABLE_INTERACTION" description="MOD_OSMOD_DISABLE_INTERACTION_DESC">
+                <option value="dragging">MOD_OSMOD_DRAGGING</option>
+                <option value="touchZoom">MOD_OSMOD_TOUCH_ZOOM</option>
+                <option value="wheelZoom">MOD_OSMOD_WHEEL_ZOOM</option>
+                <option value="doubleClickZoom">MOD_OSMOD_CLICK_ZOOM</option>
+                <option value="boxZoom">MOD_OSMOD_BOX_ZOOM</option>
+                <option value="keyboard">MOD_OSMOD_KEYBOARD</option>
+                <option value="zoomControls">MOD_OSMOD_ZOOM_CONTROLS</option>
+            </field>
+
+
             <field type="spacer" name="spacerPos0" hr="true" />
             <field type="spacer" name="spacerPos" label="MOD_OSMOD_POSITION" class="text"/>
 

@@ -195,16 +195,42 @@ class ModOsmodHelper{
         // ----------------------------------------
 
         // no worldWarp (no wolrd copies, restrict the view to one world)
+        $mapOtions = array();
         if($params->get('noWorldWarp', 0) == 1){
+            $mapOtions[] = "worldCopyJump: false, maxBounds: [ [82, -180], [-82, 180] ]";
             $nowarp = "noWrap: true, ";
-            $worldcopyjump = "worldCopyJump: false, maxBounds: [ [82, -180], [-82, 180] ]";
         }else{
             $nowarp = "noWrap: false, ";
-            $worldcopyjump = "worldCopyJump: true";
+        }
+
+        // Disable interaction
+        if (is_array($params->get('disableInteraction'))) {
+            if (in_array('dragging', $params->get('disableInteraction'))) {
+                $mapOtions[] = "dragging: false";
+                $mapOtions[] = "tap: false";
+            }
+            if (in_array('wheelZoom', $params->get('disableInteraction'))) {
+                $mapOtions[] = "scrollWheelZoom: false";
+            }
+            if (in_array('touchZoom', $params->get('disableInteraction'))) {
+                $mapOtions[] = "touchZoom: false";
+            }
+            if (in_array('doubleClickZoom', $params->get('disableInteraction'))) {
+                $mapOtions[] = "doubleClickZoom: false";
+            }
+            if (in_array('boxZoom', $params->get('disableInteraction'))) {
+                $mapOtions[] = "boxZoom: false";
+            }
+            if (in_array('keyboard', $params->get('disableInteraction'))) {
+                $mapOtions[] = "keyboard: false";
+            }
+            if (in_array('zoomControls', $params->get('disableInteraction'))) {
+                $mapOtions[] = "zoomControl: false";
+            }
         }
 
         // create the map
-        $js  = "var map".$id."       = new L.Map('map".$id."', {".$worldcopyjump."});\n";
+        $js  = "var map".$id."       = new L.Map('map".$id."', {".join(", ", $mapOtions)."});\n";
         $js .= "    map".$id.".attributionControl.setPrefix('');\n";
         $js .= "var baselayer".$id." = new L.TileLayer('".$baselayerURL."', {".$baselayerSettings.$nowarp."attribution: '<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">© OpenStreetMap contributors</a>'});\n";
         $js .= "var koord".$id."     = new L.LatLng(".$lat.", ".$lon.");\n";
