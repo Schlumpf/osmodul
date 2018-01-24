@@ -6,12 +6,12 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 - Set markers to the map
 - multiple marker support
 - marker popup
-- languages: EN, DE, FR
+- languages: EN, DE, FR, NL
 - custom marker support
 - based on Leaflet -> nice design
 - different maps on one site
 - no ads
-- different map styles: Mapnik, MapQuest, ...
+- different map styles
 - custom tile server support
 - auto update
 - moduleclass suffix
