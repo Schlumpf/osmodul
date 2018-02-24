@@ -1,6 +1,9 @@
 OSModul Changelog
 -----------------
 
+v2.15
+ - Use HTTPS for all tile servers
+
 v2.14
  - Possibility do disable user interaction
  - Add Dutch translation (Thanks to Roelof Ymker)

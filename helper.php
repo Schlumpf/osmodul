@@ -3,7 +3,7 @@
 # mod_osmod
 # ------------------------------------------------------------------------
 # author    Martin Kröll
-# copyright Copyright (C) 2012-2015 Martin Kröll. All Rights Reserved.
+# copyright Copyright (C) 2012-2018 Martin Kröll. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 --------------------------------------------------------------------------
 */
