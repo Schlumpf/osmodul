@@ -3,7 +3,7 @@
 # mod_osmod
 # ------------------------------------------------------------------------
 # author    Martin Kröll
-# copyright Copyright (C) 2012-2015 Martin Kröll. All Rights Reserved.
+# copyright Copyright (C) 2012-2018 Martin Kröll. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 --------------------------------------------------------------------------
 */
@@ -154,10 +154,10 @@ class ModOsmodHelper{
     public static function javascript($params, $id){
         // load baselayerURL
         $baselayerSettings = '';
-        if     ($params->get('baselayer', 'mapnik') == 'mapnikde')      { $baselayerURL = 'http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';           $baselayerSettings = "maxZoom: 18, "; }
+        if     ($params->get('baselayer', 'mapnik') == 'mapnikde')      { $baselayerURL = 'https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';          $baselayerSettings = "maxZoom: 18, "; }
         else if($params->get('baselayer', 'mapnik') == 'stamenwater')   { $baselayerURL = 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png';   $baselayerSettings = "subdomains: 'abcd', minZoom: 1, maxZoom: 16, "; }
         else if($params->get('baselayer', 'mapnik') == 'opentopomap')   { $baselayerURL = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';                       $baselayerSettings = "maxZoom: 16, "; }
-        else if($params->get('baselayer', 'mapnik') == 'openmapsurfer') { $baselayerURL = 'http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}';     $baselayerSettings = "maxZoom: 20, "; }
+        else if($params->get('baselayer', 'mapnik') == 'openmapsurfer') { $baselayerURL = 'https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}';    $baselayerSettings = "maxZoom: 20, "; }
         else if($params->get('baselayer', 'mapnik') == 'humanitarian')  { $baselayerURL = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';                  $baselayerSettings = "maxZoom: 20, "; }
         else if($params->get('baselayer', 'mapnik') == 'custom')        { $baselayerURL = $params->get('customBaselayerURL', ''); }
         else   /* unknown layer and mapnik */                           { $baselayerURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';                     $baselayerSettings = "maxZoom: 19, "; }
