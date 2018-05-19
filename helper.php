@@ -29,7 +29,7 @@ class ModOsmodHelper{
 
     private static function scale($params, $id){
         $return = "";
-        if (count($params->get('scale')) > 0) {
+        if (!empty($params->get('scale'))) {
            $return .= "L.control.scale({";
 
             if (in_array('metric', $params->get('scale'))) {
