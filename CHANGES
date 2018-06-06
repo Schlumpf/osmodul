@@ -1,6 +1,11 @@
 OSModul Changelog
 -----------------
 
+v2.16
+ - Fix a PHP 7.2 warning
+ - Move project home to GitLab (https://gitlab.com/schlumpf/osmodul)
+ - Update Leaflet to 1.3.1
+
 v2.15
  - Use HTTPS for all tile servers
 
