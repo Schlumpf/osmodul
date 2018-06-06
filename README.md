@@ -4,22 +4,22 @@ OSModul is a simple module to display a map from [OpenStreetmap](https://openstr
 ## Features
 - Easy to use
 - Set markers to the map
-- multiple marker support
-- marker popup
-- languages: EN, DE, FR, NL
-- custom marker support
-- based on Leaflet -> nice design
-- different maps on one site
-- no ads
-- different map styles
-- custom tile server support
-- auto update
-- moduleclass suffix
-- map scale
+- Multiple marker support
+- Marker popup
+- Languages: EN, DE, FR, NL
+- Custom marker support
+- Based on [Leaflet](https://leafletjs.com)
+- Different maps on one site
+- No ads
+- Different map styles
+- Custom tile server support
+- Auto update
+- Moduleclass suffix
+- Map scale
 
 ## Demo usage
-[http://hof-ronig.de](http://hof-ronig.de)
-[http://www.sailcom.ch](http://www.sailcom.ch/de/flotte/bootsstandorte)
+- [http://hof-ronig.de](http://hof-ronig.de)
+- [http://www.sailcom.ch](http://www.sailcom.ch/de/flotte/bootsstandorte)
 
 ## Help
-For help and more information, take a look to the [Wiki](https://github.com/Schlumpf/osmodul/wiki).
+For help and more information, take a look to the [Wiki](https://gitlab.com/schlumpf/osmodul/wikis/home).
